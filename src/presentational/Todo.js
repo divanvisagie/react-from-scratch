@@ -3,7 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 
-const Todo = ({ value }) => (<li className='Todo'>
+const Todo = ({ value, onClick }) => (<li className='Todo' onClick={onClick}>
     {value}
 </li>)
 
