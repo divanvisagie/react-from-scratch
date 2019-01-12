@@ -21,12 +21,10 @@ class App extends Component {
     render() {
         console.log('Rendering with args', arguments)
         return (
-            <div>
-                Hello React <span>{this.state.count}</span>
-
-                <button onClick={this.handleClick}>+1</button>
-
-                TODOS: 
+            <div className='App'>
+                <header>
+                    React Todo App
+                </header>
                 
                 <Todos></Todos>
             </div>

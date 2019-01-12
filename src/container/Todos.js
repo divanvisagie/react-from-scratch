@@ -26,7 +26,7 @@ class Todos extends Component {
     async handleAddTodo(event) {
 
         const todo = this.inputRef.current.value
-        this.inputRef.current.value = "" //clear the input
+        this.inputRef.current.value = '' //clear the input
 
         const response = await fetch('/todo', {
             method: 'POST',
@@ -51,13 +51,13 @@ class Todos extends Component {
     render() {
         const {todos} = this.state
         return (
-            <div>
+            <div className='Todos'>
                 <ul>
                     {todos.map((x,i) => 
                         <Todo key={i} value={x}/>
                     )}
                 </ul>
-                <input type="text" ref={this.inputRef}></input>
+                <input type='text' ref={this.inputRef}></input>
                 <button onClick={this.handleAddTodo}>Add</button>
             </div>
         )
