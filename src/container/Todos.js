@@ -15,19 +15,36 @@ class Todos extends Component {
     
     async componentDidMount() {
         const response = await fetch('/todo')
+        if (!response.ok) {
+            return
+        }
+
         const todos = await response.json()
         this.setState({todos})
     }
 
-    handleAddTodo(event) {
-        
+    async handleAddTodo(event) {
 
-        this.setState({
-            todos: [...this.state.todos, this.inputRef.current.value]
+        const todo = this.inputRef.current.value
+        this.inputRef.current.value = "" //clear the input
+
+        const response = await fetch('/todo', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({todo})
         })
+        if (!response.ok) {//Add to local if cant find server
+            this.setState({
+                todos: [...this.state.todos, todo]
+            })
+            return
+        }
 
-        this.inputRef.current.value = ""
-
+        const todos = await response.json()
+        this.setState({todos})
 
     }
 
