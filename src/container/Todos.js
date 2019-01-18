@@ -96,14 +96,6 @@ class Todos extends Component {
                     onClose={this.onClose}
                 >
                     <TodoDetail content={selectedItem} onClose={this.onClose}></TodoDetail>
-                    {/* 
-                    {selectedItem}
-
-                     
-                    
-                    
-                    */
-                    }
                 </Modal>
             </div>
         )
