@@ -1,0 +1,10 @@
+.TodoDetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.TodoDetail-body {
+    height: calc(100% - 100px);
+}

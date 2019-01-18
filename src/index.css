@@ -54,8 +54,11 @@ button {
     background: #99f;
     padding: 8px;
     border: 1px solid #99f;
+    border-radius: 3px;
+}
+
+.button-with-input-left {
     border-radius: 0 3px 3px 0;
-    
 }
 
 input {

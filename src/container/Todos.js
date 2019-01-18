@@ -3,6 +3,20 @@ import Todo from '../presentational/Todo'
 
 import Modal from './Modal'
 
+import './TodoDetail.css'
+
+
+const TodoDetail = ({content, onClose}) => (
+    <div className="TodoDetail">
+        <h3>Selected Item</h3>
+
+        <p className="TodoDetail-body">
+            {content}
+        </p>
+
+        <button onClick={onClose}>Close</button>
+    </div>
+)
 
 class Todos extends Component {
     constructor() {
@@ -76,12 +90,21 @@ class Todos extends Component {
                     )}
                 </ul>
                 <input type='text' ref={this.inputRef}></input>
-                <button onClick={this.handleAddTodo}>Add</button>
+                <button className="button-with-input-left" onClick={this.handleAddTodo}>Add</button>
                 <Modal 
                     open={open}
                     onClose={this.onClose}
-                    content={selectedItem}
-                />
+                >
+                    <TodoDetail content={selectedItem} onClose={this.onClose}></TodoDetail>
+                    {/* 
+                    {selectedItem}
+
+                     
+                    
+                    
+                    */
+                    }
+                </Modal>
             </div>
         )
     }
